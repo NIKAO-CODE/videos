@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pós na Prática</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: "Inter", sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 30px;
+    color: #1f2937;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+
+  /* 🔍 busca */
+  .search input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 20px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* 📦 grid categorias */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    display: flex;
+    gap: 15px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+
+  .card:hover {
+    border-color: #3b82f6;
+  }
+
+  .thumb {
+    width: 80px;
+    height: 80px;
+    background: #e5e7eb;
+    border-radius: 6px;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .title {
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: #6b7280;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #d1fae5;
+    color: #065f46;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+  }
+
+  /* 🎬 vídeos */
+  .item {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .video-title {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  button:hover {
+    background: #f1f5f9;
+  }
+
+  iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .back {
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: #3b82f6;
+    font-size: 14px;
+  }
+
+  .back:hover {
+    text-decoration: underline;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- 🔹 TELA CATEGORIAS -->
+  <div id="home">
+
+    <h1>Playlists</h1>
+    <div class="subtitle">Organize seus vídeos por categorias</div>
+
+    <div class="search">
+      <input type="text" id="searchCategory" placeholder="Buscar categoria...">
+    </div>
+
+    <div class="grid" id="categoryGrid">
+
+      <div class="card" data-title="xpress" onclick="openCategory('xpress')">
+        <div class="thumb"></div>
+        <div class="content">
+          <div class="badge">2 vídeos</div>
+          <div class="title">XPress</div>
+          <div class="meta">Pós na Prática</div>
+        </div>
+      </div>
+
+      <div class="card" data-title="torax" onclick="openCategory('torax')">
+        <div class="thumb"></div>
+        <div class="content">
+          <div class="badge">1 vídeo</div>
+          <div class="title">Tórax</div>
+          <div class="meta">Pós na Prática</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 🔹 TELA VÍDEOS -->
+  <div id="videos" class="hidden">
+
+    <div class="back" onclick="goHome()">← Voltar</div>
+
+    <h1 id="categoryTitle"></h1>
+
+    <div class="search">
+      <input type="text" id="searchVideo" placeholder="Buscar vídeos...">
+    </div>
+
+    <div id="videoList">
+
+      <div class="item" data-cat="xpress" data-title="xpress 01">
+        <div class="video-title">XPress 01</div>
+        <button onclick="toggleVideo(this)">Abrir</button>
+        <iframe class="hidden" src="https://www.youtube.com/embed/KhxhAgsTQsE"></iframe>
+      </div>
+
+      <div class="item" data-cat="xpress" data-title="xpress 02">
+        <div class="video-title">XPress 02</div>
+        <button onclick="toggleVideo(this)">Abrir</button>
+        <iframe class="hidden" src="https://www.youtube.com/embed/5_RU2K2TSH8"></iframe>
+      </div>
+
+      <div class="item" data-cat="torax" data-title="torax 01">
+        <div class="video-title">Tórax 01</div>
+        <button onclick="toggleVideo(this)">Abrir</button>
+        <iframe class="hidden" src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  const home = document.getElementById('home');
+  const videos = document.getElementById('videos');
+  const items = document.querySelectorAll('.item');
+
+  function openCategory(cat) {
+    home.classList.add('hidden');
+    videos.classList.remove('hidden');
+
+    document.getElementById('categoryTitle').innerText = cat.toUpperCase();
+
+    filterVideos(cat, "");
+  }
+
+  function goHome() {
+    videos.classList.add('hidden');
+    home.classList.remove('hidden');
+  }
+
+  function filterVideos(cat, termo) {
+    items.forEach(item => {
+      const matchCat = item.dataset.cat === cat;
+      const matchBusca = item.dataset.title.includes(termo);
+
+      item.style.display = (matchCat && matchBusca) ? 'block' : 'none';
+    });
+  }
+
+  document.getElementById('searchVideo').addEventListener('keyup', function() {
+    const termo = this.value.toLowerCase();
+    const cat = document.getElementById('categoryTitle').innerText.toLowerCase();
+
+    filterVideos(cat, termo);
+  });
+
+  document.getElementById('searchCategory').addEventListener('keyup', function() {
+    const value = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const title = card.dataset.title;
+      card.style.display = title.includes(value) ? 'flex' : 'none';
+    });
+  });
+
+  function toggleVideo(button) {
+    const iframe = button.parentElement.querySelector('iframe');
+    iframe.classList.toggle('hidden');
+  }
+</script>
+
+</body>
+</html>
