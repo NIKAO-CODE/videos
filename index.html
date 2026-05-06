@@ -8,6 +8,34 @@
 
 <style>
 
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+/* PARCEIROS */
+
+.partner-strip {
+  margin-bottom: 35px;
+}
+
+.partner-strip img {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  object-fit: contain;
+  opacity: 0.9;
+  border-radius: 12px;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: #f3f6fb;
@@ -247,9 +275,31 @@ iframe {
   <!-- HOME -->
   <div id="home">
 
-    <h1>Pós na Prática</h1>
-    <div class="subtitle">
-      Organize seus vídeos por categorias
+    <div class="topbar">
+
+    <img
+        src="images/logo.png"
+        class="logo"
+        alt="Logo Pós na Prática">
+
+    <div>
+
+        <h1>Pós na Prática</h1>
+
+        <div class="subtitle">
+        Organize seus vídeos por categorias
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="partner-strip">
+
+    <img
+        src="images/faixa_original.png"
+        alt="Parceiros">
+
     </div>
 
     <div class="search">
