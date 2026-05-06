@@ -7,221 +7,385 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    font-family: "Inter", sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-    padding: 15px;
-    color: #1f2937;
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f3f6fb;
+  margin: 0;
+  color: #1e293b;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+  padding: 35px 20px 60px;
+}
+
+/* HEADER */
+
+h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 0;
+  color: #0f172a;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+
+/* SEARCH */
+
+.search {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.search input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid #dbe3ee;
+  font-size: 15px;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* CARD */
+
+.card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: white;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+  border-color: #c7d6ea;
+}
+
+/* THUMB */
+
+.thumb {
+  width: 95px;
+  height: 95px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #e2e8f0;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENT */
+
+.content {
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  background: #b7f0c2;
+  color: #166534;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.meta {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* BACK */
+
+.back {
+  margin-bottom: 25px;
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.back:hover {
+  opacity: 0.8;
+}
+
+/* VIDEO LIST */
+
+.item {
+  background: white;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  transition: 0.2s ease;
+}
+
+.item:hover {
+  border-color: #c7d6ea;
+}
+
+/* VIDEO TITLE */
+
+.video-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #0f172a;
+}
+
+/* BUTTON */
+
+button {
+  background: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #1e293b;
+}
+
+/* IFRAME */
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 12px;
+  margin-top: 18px;
+}
+
+/* UTIL */
+
+.hidden {
+  display: none;
+}
+
+/* RESPONSIVO */
+
+@media (min-width: 700px) {
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .container {
-    max-width: 1100px;
-    margin: auto;
-  }
+}
+
+@media (max-width: 700px) {
 
   h1 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 5px;
-  }
-
-  .subtitle {
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 15px;
-  }
-
-  /* 🔍 busca */
-  .search input {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 15px 0;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 14px;
-  }
-
-  /* 📦 MOBILE FIRST */
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr; /* 👈 1 coluna no mobile */
-    gap: 12px;
+    font-size: 30px;
   }
 
   .card {
-    display: flex;
-    gap: 10px;
-    background: #ffffff;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    padding: 12px;
-    cursor: pointer;
-  }
-
-  .thumb {
-    width: 60px;
-    height: 60px;
-    background: #e5e7eb;
-    border-radius: 6px;
-    flex-shrink: 0;
+    align-items: flex-start;
   }
 
   .title {
-    font-size: 14px;
+    font-size: 20px;
   }
 
-  .meta {
-    font-size: 12px;
-    color: #6b7280;
+  .thumb {
+    width: 75px;
+    height: 75px;
   }
 
-  .badge {
-    font-size: 10px;
-    padding: 2px 6px;
-  }
+}
 
-  /* 🎬 vídeos */
-  .item {
-    background: #ffffff;
-    border: 1px solid #d1d5db;
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 12px;
-  }
-
-  .video-title {
-    font-size: 14px;
-  }
-
-  button {
-    width: 100%;
-    margin-top: 5px;
-  }
-
-  /* 🎥 vídeo responsivo */
-  iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* 👈 chave do responsivo */
-    height: auto;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .back {
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-  /* 💻 TABLET */
-  @media (min-width: 600px) {
-    body {
-      padding: 20px;
-    }
-
-    .grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    button {
-      width: auto;
-    }
-  }
-
-  /* 🖥️ DESKTOP */
-  @media (min-width: 900px) {
-    .grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .card {
-      padding: 15px;
-    }
-
-    .thumb {
-      width: 80px;
-      height: 80px;
-    }
-
-    h1 {
-      font-size: 22px;
-    }
-  }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- 🔹 TELA CATEGORIAS -->
+  <!-- HOME -->
   <div id="home">
 
     <h1>Pós na Prática</h1>
-    <div class="subtitle">Organize seus vídeos por categorias</div>
-
-    <div class="search">
-      <input type="text" id="searchCategory" placeholder="Buscar categoria...">
+    <div class="subtitle">
+      Organize seus vídeos por categorias
     </div>
 
-    <div class="grid" id="categoryGrid">
+    <div class="search">
+      <input
+        type="text"
+        id="searchCategory"
+        placeholder="Buscar categoria...">
+    </div>
 
-      <div class="card" data-title="xpress" onclick="openCategory('xpress')">
-        <div class="thumb"></div>
+    <div class="grid">
+
+      <!-- XPRESS -->
+      <div
+        class="card"
+        data-title="xpress"
+        onclick="openCategory('xpress')">
+
+        <div class="thumb">
+          <img src="https://img.youtube.com/vi/KhxhAgsTQsE/hqdefault.jpg">
+        </div>
+
         <div class="content">
           <div class="badge">2 vídeos</div>
           <div class="title">XPress</div>
           <div class="meta">Pós na Prática</div>
         </div>
+
       </div>
 
-      <div class="card" data-title="torax" onclick="openCategory('torax')">
-        <div class="thumb"></div>
+      <!-- TORAX -->
+      <div
+        class="card"
+        data-title="torax"
+        onclick="openCategory('torax')">
+
+        <div class="thumb">
+          <img src="https://img.youtube.com/vi/5_RU2K2TSH8/hqdefault.jpg">
+        </div>
+
         <div class="content">
           <div class="badge">1 vídeo</div>
           <div class="title">Tórax</div>
           <div class="meta">Pós na Prática</div>
         </div>
+
       </div>
 
     </div>
+
   </div>
 
-  <!-- 🔹 TELA VÍDEOS -->
+  <!-- VIDEOS -->
   <div id="videos" class="hidden">
 
-    <div class="back" onclick="goHome()">← Voltar</div>
+    <div class="back" onclick="goHome()">
+      ← Voltar
+    </div>
 
     <h1 id="categoryTitle"></h1>
 
     <div class="search">
-      <input type="text" id="searchVideo" placeholder="Buscar vídeos...">
+      <input
+        type="text"
+        id="searchVideo"
+        placeholder="Buscar vídeos...">
     </div>
 
     <div id="videoList">
 
-      <div class="item" data-cat="xpress" data-title="xpress 01">
-        <div class="video-title">XPress 01</div>
-        <button onclick="toggleVideo(this)">Mostrar/Ocultar</button>
-        <iframe class="hidden" src="https://www.youtube.com/embed/KhxhAgsTQsE"></iframe>
+      <!-- VIDEO 1 -->
+      <div
+        class="item"
+        data-cat="xpress"
+        data-title="xpress 01">
+
+        <div class="video-title">
+          XPress 01
+        </div>
+
+        <button onclick="toggleVideo(this)">
+          Mostrar/Ocultar
+        </button>
+
+        <iframe
+          class="hidden"
+          loading="lazy"
+          allowfullscreen
+          data-src="https://www.youtube.com/embed/KhxhAgsTQsE">
+        </iframe>
+
       </div>
 
-      <div class="item" data-cat="xpress" data-title="xpress 02">
-        <div class="video-title">XPress 02</div>
-        <button onclick="toggleVideo(this)">Mostrar/Ocultar</button>
-        <iframe class="hidden" src="https://www.youtube.com/embed/5_RU2K2TSH8"></iframe>
+      <!-- VIDEO 2 -->
+      <div
+        class="item"
+        data-cat="xpress"
+        data-title="xpress 02">
+
+        <div class="video-title">
+          XPress 02
+        </div>
+
+        <button onclick="toggleVideo(this)">
+          Mostrar/Ocultar
+        </button>
+
+        <iframe
+          class="hidden"
+          loading="lazy"
+          allowfullscreen
+          data-src="https://www.youtube.com/embed/5_RU2K2TSH8">
+        </iframe>
+
       </div>
 
-      <div class="item" data-cat="torax" data-title="torax 01">
-        <div class="video-title">Tórax 01</div>
-        <button onclick="toggleVideo(this)">Mostrar/Ocultar</button>
-        <iframe class="hidden" src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+      <!-- TORAX -->
+      <div
+        class="item"
+        data-cat="torax"
+        data-title="torax 01">
+
+        <div class="video-title">
+          Tórax 01
+        </div>
+
+        <button onclick="toggleVideo(this)">
+          Mostrar/Ocultar
+        </button>
+
+        <iframe
+          class="hidden"
+          loading="lazy"
+          allowfullscreen
+          data-src="https://www.youtube.com/embed/VIDEO_ID">
+        </iframe>
+
       </div>
 
     </div>
@@ -231,54 +395,109 @@
 </div>
 
 <script>
-  const home = document.getElementById('home');
-  const videos = document.getElementById('videos');
-  const items = document.querySelectorAll('.item');
 
-  function openCategory(cat) {
-    home.classList.add('hidden');
-    videos.classList.remove('hidden');
+const home = document.getElementById('home');
+const videos = document.getElementById('videos');
+const items = document.querySelectorAll('.item');
 
-    document.getElementById('categoryTitle').innerText = cat.toUpperCase();
+let currentCategory = '';
 
-    filterVideos(cat, "");
-  }
+function openCategory(cat) {
 
-  function goHome() {
-    videos.classList.add('hidden');
-    home.classList.remove('hidden');
-  }
+  currentCategory = cat;
 
-  function filterVideos(cat, termo) {
-    items.forEach(item => {
-      const matchCat = item.dataset.cat === cat;
-      const matchBusca = item.dataset.title.includes(termo);
+  home.classList.add('hidden');
+  videos.classList.remove('hidden');
 
-      item.style.display = (matchCat && matchBusca) ? 'block' : 'none';
-    });
-  }
+  document.getElementById('categoryTitle')
+    .innerText = cat.toUpperCase();
 
-  document.getElementById('searchVideo').addEventListener('keyup', function() {
-    const termo = this.value.toLowerCase();
-    const cat = document.getElementById('categoryTitle').innerText.toLowerCase();
+  filterVideos(cat, '');
 
-    filterVideos(cat, termo);
+}
+
+function goHome() {
+
+  document.querySelectorAll('iframe').forEach(iframe => {
+    iframe.src = '';
+    iframe.classList.add('hidden');
   });
 
-  document.getElementById('searchCategory').addEventListener('keyup', function() {
-    const value = this.value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
+  videos.classList.add('hidden');
+  home.classList.remove('hidden');
 
-    cards.forEach(card => {
-      const title = card.dataset.title;
-      card.style.display = title.includes(value) ? 'flex' : 'none';
-    });
+}
+
+function filterVideos(cat, termo) {
+
+  items.forEach(item => {
+
+    const matchCat =
+      item.dataset.cat === cat;
+
+    const matchBusca =
+      item.dataset.title
+        .toLowerCase()
+        .includes(termo);
+
+    item.style.display =
+      (matchCat && matchBusca)
+      ? 'block'
+      : 'none';
+
   });
 
-  function toggleVideo(button) {
-    const iframe = button.parentElement.querySelector('iframe');
-    iframe.classList.toggle('hidden');
+}
+
+document
+.getElementById('searchVideo')
+.addEventListener('keyup', function() {
+
+  const termo =
+    this.value.toLowerCase();
+
+  filterVideos(currentCategory, termo);
+
+});
+
+document
+.getElementById('searchCategory')
+.addEventListener('keyup', function() {
+
+  const value =
+    this.value.toLowerCase();
+
+  const cards =
+    document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+
+    const title =
+      card.dataset.title;
+
+    card.style.display =
+      title.includes(value)
+      ? 'flex'
+      : 'none';
+
+  });
+
+});
+
+function toggleVideo(button) {
+
+  const iframe =
+    button.parentElement
+      .querySelector('iframe');
+
+  if (!iframe.src) {
+    iframe.src = iframe.dataset.src;
   }
+
+  iframe.classList.toggle('hidden');
+
+}
+
 </script>
 
 </body>
